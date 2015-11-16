@@ -9,13 +9,16 @@ require.config({
     'firebase' : '../lib/bower_components/firebase/firebase'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase':{
+      exports: "Firebase"
+    }
   }
 });
 
 require(
-  ["dependencies", "fb"], 
-  function(_$_, Firebase) {
+  ["dependencies", "firebase"], 
+  function(_$_, fb) {
 
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");
