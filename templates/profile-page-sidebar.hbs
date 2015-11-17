@@ -1,0 +1,26 @@
+{{#each}}
+ <!-- This is the prev. to users profile -->
+  <div class="row" id="myProfilePrev">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 profilePicPrev">{{image}}</div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 profileNamePrev">{{name}}</div>
+    <button type="button" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- This is the filter for the favorites that are going to show in the dom -->
+  <div class="row" id="FavoritesFilter">
+    <button type="button" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    </button>
+  </div>
+
+
+  <div class="row" id="ActivityFeed">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Activity Feed</div>
+  </div>
+
+  <div class="row" id="chatArea">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Chat Area</div>
+  </div>
+{{/each}}

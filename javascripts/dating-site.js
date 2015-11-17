@@ -20,7 +20,6 @@ require(
   ["dependencies", "firebase", "auth"], 
   function(_$_, fb, auth) {
 
-
   var ref = new Firebase("https://dating-app15.firebaseio.com");
   var authData = ref.getAuth();
 
