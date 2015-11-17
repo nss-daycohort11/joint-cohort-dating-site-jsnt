@@ -1,6 +1,7 @@
 body {
   background-color: #13042B;
-  font-family: "Courier New", Courier, monospace; }
+  font-family: "Courier New", Courier, monospace;
+  color: white; }
 
 .topTitle {
   border: 2px dotted white;
