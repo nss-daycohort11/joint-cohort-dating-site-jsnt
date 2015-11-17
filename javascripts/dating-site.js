@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
-  ["dependencies", "firebase"], 
-  function(_$_, fb) {
+  ["dependencies","potential-mates", "add-favorite"], 
+  function(_$_, potentialMates, addFavorites) {
 
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");
@@ -32,6 +32,33 @@ require(
         }
       });
   }
+
+  login();
+
+  var globalUsers;
+
+
+  //"deferred.promise"
+  potentialMates()
+    .then(function(users) {
+      globalUsers = users;
+      // postToDom(users);
+      console.log("globalUsers", globalUsers);
+      // return addFavorites();
+    })
+    // .then(function(favorites) {
+    //   console.log("Im Working!");
+    //   return favorites;
+    // });
+
+    .fail(function(error) {
+      console.log("error", error); 
+    });
+
+
+  
+
+
     /*
       You can choose to use the REST methods to interact with
       Firebase, or you can use the Firebase API with event
