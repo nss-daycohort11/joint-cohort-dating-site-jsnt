@@ -1,14 +1,41 @@
 define(function(require){
-  var uid = null;
+var post = require("post-firebase");
 
+  var userInfo = null;
+  var facebookInfo = {};
   return{
-    getUid: function(){
-      console.log("returning", uid);
-      return uid;
+    getUserInfo: function(){
+      //console.log("returning", userInfo);
+      return facebookInfo;
     },
-    setUid: function(newId){
-      console.log("setting user id to", newId);
-      uid = newId;
+    setUserInfo: function(newId){
+      //console.log("fb obj", newId);
+      userInfo = newId;
+      
+      facebookInfo = {
+        "name": userInfo.displayName,
+        "id": userInfo.id,
+        "gender": userInfo.cachedUserProfile.gender,
+        "profileImage": userInfo.profileImageURL,
+        "age": "",
+        "bio": "",
+        "faveLang": "",
+        "link": "",
+        "pcMac": "",
+        "faveStack": "",
+      };
+      console.log("fb Object",facebookInfo);
+      post.postToFirebase(facebookInfo);
     }
+
   };
+
+
+
+
+
+
+
+
+
 });

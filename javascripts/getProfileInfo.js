@@ -1,6 +1,22 @@
 define(function(require) {
   var q = require("q");
   var $ = require("jquery");
+  var auth = require("auth");
+
+
+
+var facebookInfo; 
+
+$(".test").on("click", function(){
+ facebookInfo = auth.getUserInfo();
+console.log("get facebook Info",facebookInfo);
+});
+
+// console.log(userInfo.id);
+// console.log(userInfo.profileImageURL);
+
+
+
 
   console.log("I see get profile info!");
 
