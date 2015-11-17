@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
-  ["dependencies","potential-mates", "add-favorite", "auth", "getProfileInfo"], 
-  function(_$_, potentialMates, addFavorites,auth, getProfileInfo) {
+  ["dependencies","potential-mates", "add-favorite", "auth", "getProfileInfo", "populate-dom"], 
+  function(_$_, potentialMates, addFavorites,auth, getProfileInfo, PopulateDom) {
 
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");
@@ -28,20 +28,14 @@ require(
  
 
   var globalUsers;
+PopulateDom.postToProfilePage(globalUsers.users)
 
-
-  //"deferred.promise"
   potentialMates()
     .then(function(users) {
       globalUsers = users;
       // postToDom(users);
       console.log("globalUsers", globalUsers);
-      // return addFavorites();
     })
-    // .then(function(favorites) {
-    //   console.log("Im Working!");
-    //   return favorites;
-    // });
 
     .fail(function(error) {
       console.log("error", error); 
