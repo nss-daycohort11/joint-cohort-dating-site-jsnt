@@ -71,18 +71,23 @@
     </div>
 
   <div class="container-flex">
-
-    <div class="col-md-3">
-      
+    
+    <div class="col-md-3 col-sm-3 user-image">
+      <div class="image-container"> 
+        <!-- <img src="http://www.canvaz.com/portrait/charcoal-1.jpg" class="img-rounded" width="100%"> -->
+      </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 col-sm-9">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">{{ name }}</h3>
         </div>
         <div class="panel-body">
-          {{ bio }}
+          <p>{{ age }}</p>
+          <p>{{ city }}</p>
+          <p>{{ faveLang }}</p>
+          <p>{{ bio }}</p>
         </div>
       </div>
 
