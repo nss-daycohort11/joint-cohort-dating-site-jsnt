@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Test 1</title>
+ <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+
+<!-- browse Prospects Page -->
+
+  <section id="hidden-side-bar">
+    
+  </section>
+
+  <section id="browseProspectsPage">
+
+    
+  
+    <div id="sidebar">
+      <div class="container-fluid">
+       <div class="row">
+         <div class="container-fluid" id="profile">
+         
+         </div>
+
+         <div class="container-fluid profileNamePrev">
+           <!-- In here goes the profile-page-sidebar.hbs template -->
+
+          <!-- This is the prev. to users profile -->
+           <div class="row" id="myProfilePrev">
+             <div class="profilePicPrev">
+              <img src="http://www.canvaz.com/portrait/charcoal-1.jpg" class="img-rounded img-responsive" width="100%">
+
+             {{image}}
+             </div>
+             <div class="profileNamePrev">Hi {{name}}!</div>
+             <button type="button" class="btn btn-default btn-lg">
+               <span class="side-bar-button glyphicon glyphicon-edit" aria-hidden="true">  Edit Profile</span>
+             </button>
+           </div>
+
+           <!-- This is the filter for the favorites that are going to show in the dom -->
+           <div class="row" id="FavoritesFilter">
+             <button type="button" class="btn btn-default btn-lg">
+               <span class="side-bar-button glyphicon glyphicon-heart" aria-hidden="true">  My Favorites</span>
+             </button>
+           </div>
+
+
+           <div class="row" id="activity-feed">
+             <div>Activity Feed</div>
+             <div class="event">Steve Brownlee poked you</div>
+             <div class="event">Taylor Miley added you to his favorites</div>
+             <div class="event">Next Event</div>
+             <div class="event">Next Event</div>
+             <div class="event">Next Event</div>
+           </div>
+
+           <div class="row" id="chat-area">
+             <div>Chat</div>
+             <input id="message-input" type="text" class="form-control" placeholder="Type message here">
+             
+           </div>
+
+           
+         </div>
+       </div>
+      </div>
+    </div>
+
+  <div class="container-flex">
+
+    <div class="col-md-3">
+      
+    </div>
+
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{ name }}</h3>
+        </div>
+        <div class="panel-body">
+          {{ bio }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+      
+
+  </section>
+
+</body>
+</html>
