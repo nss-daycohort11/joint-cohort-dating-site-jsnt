@@ -24,8 +24,14 @@ var post = require("post-firebase");
         "pcMac": "",
         "faveStack": "",
       };
-      console.log("fb Object",facebookInfo);
-      post.postToFirebase(facebookInfo);
+
+      console.log("userInfo.id", userInfo.id);
+
+      var fbRef = new Firebase("https://dating-app15.firebaseio.com/users/" + userInfo.id);
+      fbRef.set(facebookInfo);
+
+      // console.log("fb Object",facebookInfo);
+      // post.postToFirebase(facebookInfo);
     }
 
   };
