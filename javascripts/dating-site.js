@@ -20,11 +20,13 @@ require(
   ["dependencies", "firebase", "auth", "getProfileInfo"], 
   function(_$_, fb, auth, getProfileInfo) {
 
-
   var ref = new Firebase("https://dating-app15.firebaseio.com");
   var authData = ref.getAuth();
 
   console.log(authData);
+
+
+
   
   $('#login').click(function(){
         console.log("click");
@@ -36,12 +38,15 @@ require(
                   console.log("Login Failed!", error);
                 } else {
                   console.log("Authenticated successfully with payload:", authData);
-                  auth.setUid(authData.uid);
+                  auth.setUserInfo(authData.facebook);
+               
                 }
               });
             //User alreddy authenticated ,store uid and show data
             } else {
-              auth.setUid(authData.uid);
+              auth.setUserInfo(authData.facebook);
+
+              //auth.setFbInfo(authData.facebook.displayName);
               }   
   });
 
