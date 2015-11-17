@@ -10,30 +10,22 @@ require.config({
   },
   shim: {
     'bootstrap': ['jquery'],
-    'firebase':{
-      exports: "Firebase"
+    'firebase': {
+      exports: 'Firebase'
     }
   }
 });
 
 require(
-  ["dependencies","potential-mates", "add-favorite"], 
-  function(_$_, potentialMates, addFavorites) {
+  ["dependencies","potential-mates", "add-favorite", "auth", "getProfileInfo"], 
+  function(_$_, potentialMates, addFavorites,auth, getProfileInfo) {
 
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");
-  
-  function login(){
-      ref.authWithOAuthPopup("facebook", function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-        }
-      });
-  }
+  var authData = ref.getAuth();
 
-  login();
+  console.log(authData);
+ 
 
   var globalUsers;
 
@@ -57,6 +49,27 @@ require(
 
 
   
+
+
+
+  $('#login').click(function(){
+        console.log("click");
+          //if there is no token key on the authData object, authenticate with 
+            //facebook Auth
+            if(authData === null){
+              ref.authWithOAuthPopup("facebook", function(error, authData) {
+                if (error) {
+                  console.log("Login Failed!", error);
+                } else {
+                  console.log("Authenticated successfully with payload:", authData);
+                  auth.setUid(authData.uid);
+                }
+              });
+            //User alreddy authenticated ,store uid and show data
+            } else {
+              auth.setUid(authData.uid);
+              }   
+  });
 
 
     /*
