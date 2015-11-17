@@ -17,8 +17,8 @@ require.config({
 });
 
 require(
-  ["dependencies", "firebase", "auth"], 
-  function(_$_, fb, auth) {
+  ["dependencies", "firebase", "auth", "getProfileInfo"], 
+  function(_$_, fb, auth, getProfileInfo) {
 
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");

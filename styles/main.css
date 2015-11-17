@@ -33,7 +33,7 @@ div > .loginButton {
 
 .edit-profile-container {
   padding-top: 25px;
-  padding-right: 35px;
+  padding-right: 200px;
   padding-left: 55px; }
 
 .edit-heading {
@@ -55,7 +55,7 @@ div > .loginButton {
 #stack-label {
   padding-top: 0px; }
 
-#save {
-  padding-left: 5px; }
+#save-button {
+  padding-left: 2px; }
 
 /*# sourceMappingURL=main.css.map */
