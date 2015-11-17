@@ -31,4 +31,74 @@ div > .loginButton {
   background-color: white;
   height: 300px; }
 
+.edit-profile-container {
+  padding-top: 25px;
+  padding-right: 200px;
+  padding-left: 55px; }
+
+.edit-heading {
+  text-align: left;
+  font-size: 1.9em;
+  padding-left: 5px; }
+
+.label {
+  font-size: 1.18em;
+  font-weight: 100; }
+
+.subtitle {
+  font-size: 0.5em;
+  padding-top: 4px; }
+
+#long-label {
+  padding-top: 0px; }
+
+#stack-label {
+  padding-top: 0px; }
+
+#save-button {
+  padding-left: 2px; }
+
+#sidebar {
+  position: fixed;
+  right: 0px;
+  width: 215px;
+  height: 100%;
+  background-color: black;
+  color: white;
+  overflow-y: scroll; }
+
+#browseProspectsPage {
+  padding-right: 215px;
+  padding-left: 8px;
+  padding-top: 10px; }
+
+.side-bar-button {
+  width: 166px; }
+
+#activity-feed :nth-child(even) {
+  background-color: #262729; }
+
+#activity-feed :nth-child(odd) {
+  background-color: #2D2F30; }
+
+#activity-feed {
+  padding-top: 3px; }
+
+#chat-area {
+  padding-top: 3px;
+  background-color: #B0B7BD;
+  height: 255px;
+  text-align: right; }
+
+.relative-bottom {
+  position: relative;
+  top: 50px; }
+
+#message-input {
+  position: relative;
+  top: 187px; }
+
+.event {
+  color: gray; }
+
 /*# sourceMappingURL=main.css.map */
