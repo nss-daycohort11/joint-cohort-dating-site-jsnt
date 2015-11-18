@@ -31,23 +31,7 @@ require(
 $("#userSideBar").hide();
 $("#profilePage").hide();
 $("#editProfile").hide();
-//$("#browseProspectsPage").hide();
 
-
-
-
-  // potentialMates()
-  //   .then(function(users) {
-  //     globalUsers = users;
-  //     // postToDom(users);
-  //     console.log("globalUsers", globalUsers);
-  //     PopulateDom.postToProfilePage(globalUsers); 
-
-  //   })
-
-    // .fail(function(error) {
-    //   console.log("error", error); 
-    // });
 
 
   $('#login').click(function(){
@@ -68,7 +52,7 @@ $("#editProfile").hide();
             } else {
               auth.setUserInfo(authData.facebook);
 
-              //auth.setFbInfo(authData.facebook.displayName);
+              
               }
 
             console.log("auth.getUserID", auth.getUserID());
@@ -86,7 +70,7 @@ $("#editProfile").hide();
               potentialMates()
               .then(function(users) {
                 globalUsers = users;
-                // postToDom(users);
+               
                 console.log("globalUsers", globalUsers);
                 console.log("globalUsers.users", globalUsers.users);
                 var usersObject = globalUsers.users;

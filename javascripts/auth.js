@@ -35,7 +35,7 @@ var post = require("post-firebase");
       fbRef.set(facebookInfo);
 
       // console.log("fb Object",facebookInfo);
-      // post.postToFirebase(facebookInfo);
+     
     },
 
     getUserID: function() {
