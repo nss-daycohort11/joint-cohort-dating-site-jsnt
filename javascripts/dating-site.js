@@ -17,14 +17,23 @@ require.config({
 });
 
 require(
-  ["dependencies", "firebase", "auth", "getProfileInfo"], 
-  function(_$_, fb, auth, getProfileInfo) {
+  ["dependencies","potential-mates", "add-favorite", "auth", "getProfileInfo", "populate-dom", "getUser"], 
+  function(_$_, potentialMates, addFavorites,auth, getProfileInfo, PopulateDom, getUser) {
+
 
   var ref = new Firebase("https://dating-app15.firebaseio.com");
   var authData = ref.getAuth();
 
   console.log(authData);
-  
+
+  var globalUsers;
+
+$("#userSideBar").hide();
+$("#profilePage").hide();
+$("#editProfile").hide();
+
+
+
   $('#login').click(function(){
         console.log("click");
           //if there is no token key on the authData object, authenticate with 
@@ -35,17 +44,95 @@ require(
                   console.log("Login Failed!", error);
                 } else {
                   console.log("Authenticated successfully with payload:", authData);
-                  auth.setUid(authData.uid);
+                  auth.setUserInfo(authData.facebook);
+               
                 }
               });
             //User alreddy authenticated ,store uid and show data
             } else {
-              auth.setUid(authData.uid);
-              }   
+              auth.setUserInfo(authData.facebook);
+
+              
+              }
+
+            console.log("auth.getUserID", auth.getUserID());
+            var currentUserID = auth.getUserID();
+
+            getUser(currentUserID)
+            .then(function(userProfile) {
+              console.log("userProfile", userProfile);
+              var userArray = [];
+              userArray.push(userProfile);
+              console.log("userArray", userArray);
+              PopulateDom.populateStandout(userProfile);
+              PopulateDom.populateEditProfile(userProfile);
+
+              potentialMates()
+              .then(function(users) {
+                globalUsers = users;
+               
+                console.log("globalUsers", globalUsers);
+                console.log("globalUsers.users", globalUsers.users);
+                var usersObject = globalUsers.users;
+
+                var matches = [];
+
+                $.map(usersObject, function(key, value) {
+                  console.log("current key.id", key.id);
+                  if (key.id === currentUserID) {
+                    console.log("I FOUND A MATCH!!!!!!");
+                    
+                  } else {
+                    matches.push(key);
+                  }
+  
+              
+                });
+
+                console.log("matches", matches);
+
+                PopulateDom.postToProfilePage(matches); 
+
+              });
+
+
+            })
+            .fail(function(error) {
+              console.log("error: ", error);
+            });
+
+
+
+            $("#profilePage").show();
+            $("#userSideBar").show();
+    
+            $("#loginPage").hide();
+
   });
 
+$("body").on("click", "#edit-button", function() {
+  console.log("event", event);
+  $("#profilePage").hide();
+  $("#editProfile").show();
 
-        
+});
+
+$("body").on("click", "#save", function() {
+  console.log("event", event);
+  $("#profilePage").show();
+  $("#editProfile").hide();
+
+});
+
+$("body").on("click", ".like-button", function() {
+  console.log("event", event);
+  console.log("this", this);
+
+});
+
+
+
+
     /*
       You can choose to use the REST methods to interact with
       Firebase, or you can use the Firebase API with event

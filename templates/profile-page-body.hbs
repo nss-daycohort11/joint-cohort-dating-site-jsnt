@@ -1,10 +1,46 @@
-{{#each users}}
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{ name }}</h3>
+{{!-- {{#each users}} --}}
+
+
+    
+{{#each this}}
+  <div class="container-flex">
+    <div class="row">
+      
+
+      <div class="col-md-12 col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ name }}
+            <button id={{id}} type="button" class="like-button btn btn-default btn-md">
+               <span class="glyphicon glyphicon-heart" aria-hidden="true" >  </span>
+             </button>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="user-image">
+              <img src={{profileImage}} class="img-rounded" width="200"> 
+            </div>
+              <div>
+                <p class="user-data">Age: {{ age }}</p>
+                <p class="user-data">City: {{ city }}</p>
+                <p class="user-data">Language: {{ faveLang }}</p>
+                <p class="user-data">Bio: {{ bio }}</p>
+              </div>
+
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  <div class="panel-body">
-    {{ bio }}
-  </div>
-</div>
 {{/each}}
+      
+
+
+
+
+{{!-- {{/each}} --}}
