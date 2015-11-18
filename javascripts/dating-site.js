@@ -126,7 +126,18 @@ $("body").on("click", "#save", function() {
 
 $("body").on("click", ".like-button", function() {
   console.log("event", event);
-  console.log("this", this);
+  console.log("this.id", this.id);
+
+  var likedUserID = this.id;
+
+  var currentUserID = auth.getUserID();
+  var myFireBaseRef = new Firebase("https://dating-app15.firebaseio.com/favorites");
+
+  myFireBaseRef.child(currentUserID).push(likedUserID);
+
+  //myFireBaseRef.update({likedUserID: likedUserID});
+
+
 
 });
 
