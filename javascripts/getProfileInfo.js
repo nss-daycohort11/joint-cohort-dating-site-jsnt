@@ -20,7 +20,7 @@ console.log("get facebook Info",facebookInfo);
 
   console.log("I see get profile info!");
 
-  $("#save").on("click", function() {
+  $("body").on("click", "#save", function() {
 
   	//console.log("you clicked save!");
 

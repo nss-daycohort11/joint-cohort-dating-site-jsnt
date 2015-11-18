@@ -3,6 +3,8 @@ var post = require("post-firebase");
 
   var userInfo = null;
   var facebookInfo = {};
+  var userID = "";
+
   return{
     getUserInfo: function(){
       //console.log("returning", userInfo);
@@ -27,11 +29,17 @@ var post = require("post-firebase");
 
       console.log("userInfo.id", userInfo.id);
 
+      userID = userInfo.id;
+
       var fbRef = new Firebase("https://dating-app15.firebaseio.com/users/" + userInfo.id);
       fbRef.set(facebookInfo);
 
       // console.log("fb Object",facebookInfo);
       // post.postToFirebase(facebookInfo);
+    },
+
+    getUserID: function() {
+      return userID;
     }
 
   };
